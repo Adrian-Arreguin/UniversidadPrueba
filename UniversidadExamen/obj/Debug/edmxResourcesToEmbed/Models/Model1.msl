@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UniversidadModelStoreContainer" CdmEntityContainer="UniversidadEntities">
+    <EntitySetMapping Name="tb_Alumno">
+      <EntityTypeMapping TypeName="UniversidadModel.tb_Alumno">
+        <MappingFragment StoreEntitySet="tb_Alumno">
+          <ScalarProperty Name="pk_alumno" ColumnName="pk_alumno" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="matricula_alumno" ColumnName="matricula_alumno" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Calificaciones">
+      <EntityTypeMapping TypeName="UniversidadModel.tb_Calificaciones">
+        <MappingFragment StoreEntitySet="tb_Calificaciones">
+          <ScalarProperty Name="pk_calificaciones" ColumnName="pk_calificaciones" />
+          <ScalarProperty Name="fk_maestro" ColumnName="fk_maestro" />
+          <ScalarProperty Name="fk_alumno" ColumnName="fk_alumno" />
+          <ScalarProperty Name="fk_materia" ColumnName="fk_materia" />
+          <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Maestro">
+      <EntityTypeMapping TypeName="UniversidadModel.tb_Maestro">
+        <MappingFragment StoreEntitySet="tb_Maestro">
+          <ScalarProperty Name="pk_maestro" ColumnName="pk_maestro" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="matricula_empleado" ColumnName="matricula_empleado" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Materia">
+      <EntityTypeMapping TypeName="UniversidadModel.tb_Materia">
+        <MappingFragment StoreEntitySet="tb_Materia">
+          <ScalarProperty Name="pk_materia" ColumnName="pk_materia" />
+          <ScalarProperty Name="nombre_materia" ColumnName="nombre_materia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

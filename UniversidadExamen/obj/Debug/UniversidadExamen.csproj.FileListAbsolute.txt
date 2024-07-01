@@ -1,0 +1,17 @@
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\UniversidadExamen.exe.config
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\UniversidadExamen.exe
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\UniversidadExamen.pdb
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\EntityFramework.dll
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\EntityFramework.xml
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.csproj.AssemblyReference.cache
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.MaestroForm.resources
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.MenuForm.resources
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.Properties.Resources.resources
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.csproj.GenerateResource.cache
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.csproj.CoreCompileInputs.cache
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.csproj.CopyComplete
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.exe
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.pdb
+C:\Users\NEOLAPS\source\repos\UniversidadExamen\UniversidadExamen\obj\Debug\UniversidadExamen.Presentation.Form1.resources

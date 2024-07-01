@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversidadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_Alumno">
+    <Key>
+      <PropertyRef Name="pk_alumno" />
+    </Key>
+    <Property Name="pk_alumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="matricula_alumno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_Calificaciones" Relationship="Self.FK__tb_Califi__fk_al__5629CD9C" FromRole="tb_Alumno" ToRole="tb_Calificaciones" />
+  </EntityType>
+  <EntityType Name="tb_Calificaciones">
+    <Key>
+      <PropertyRef Name="pk_calificaciones" />
+    </Key>
+    <Property Name="pk_calificaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_maestro" Type="Int32" Nullable="false" />
+    <Property Name="fk_alumno" Type="Int32" Nullable="false" />
+    <Property Name="fk_materia" Type="Int32" Nullable="false" />
+    <Property Name="calificacion" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_Alumno" Relationship="Self.FK__tb_Califi__fk_al__5629CD9C" FromRole="tb_Calificaciones" ToRole="tb_Alumno" />
+    <NavigationProperty Name="tb_Maestro" Relationship="Self.FK__tb_Califi__fk_ma__5535A963" FromRole="tb_Calificaciones" ToRole="tb_Maestro" />
+    <NavigationProperty Name="tb_Materia" Relationship="Self.FK__tb_Califi__fk_ma__571DF1D5" FromRole="tb_Calificaciones" ToRole="tb_Materia" />
+  </EntityType>
+  <EntityType Name="tb_Maestro">
+    <Key>
+      <PropertyRef Name="pk_maestro" />
+    </Key>
+    <Property Name="pk_maestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="matricula_empleado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_Calificaciones" Relationship="Self.FK__tb_Califi__fk_ma__5535A963" FromRole="tb_Maestro" ToRole="tb_Calificaciones" />
+  </EntityType>
+  <EntityType Name="tb_Materia">
+    <Key>
+      <PropertyRef Name="pk_materia" />
+    </Key>
+    <Property Name="pk_materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_materia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tb_Calificaciones" Relationship="Self.FK__tb_Califi__fk_ma__571DF1D5" FromRole="tb_Materia" ToRole="tb_Calificaciones" />
+  </EntityType>
+  <Association Name="FK__tb_Califi__fk_al__5629CD9C">
+    <End Role="tb_Alumno" Type="Self.tb_Alumno" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Alumno">
+        <PropertyRef Name="pk_alumno" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Califi__fk_ma__5535A963">
+    <End Role="tb_Maestro" Type="Self.tb_Maestro" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Maestro">
+        <PropertyRef Name="pk_maestro" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_maestro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Califi__fk_ma__571DF1D5">
+    <End Role="tb_Materia" Type="Self.tb_Materia" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Materia">
+        <PropertyRef Name="pk_materia" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversidadEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_Alumno" EntityType="Self.tb_Alumno" />
+    <EntitySet Name="tb_Calificaciones" EntityType="Self.tb_Calificaciones" />
+    <EntitySet Name="tb_Maestro" EntityType="Self.tb_Maestro" />
+    <EntitySet Name="tb_Materia" EntityType="Self.tb_Materia" />
+    <AssociationSet Name="FK__tb_Califi__fk_al__5629CD9C" Association="Self.FK__tb_Califi__fk_al__5629CD9C">
+      <End Role="tb_Alumno" EntitySet="tb_Alumno" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Califi__fk_ma__5535A963" Association="Self.FK__tb_Califi__fk_ma__5535A963">
+      <End Role="tb_Maestro" EntitySet="tb_Maestro" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Califi__fk_ma__571DF1D5" Association="Self.FK__tb_Califi__fk_ma__571DF1D5">
+      <End Role="tb_Materia" EntitySet="tb_Materia" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

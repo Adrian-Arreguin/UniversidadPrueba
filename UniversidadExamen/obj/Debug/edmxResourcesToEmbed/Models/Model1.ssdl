@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversidadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_Alumno">
+    <Key>
+      <PropertyRef Name="pk_alumno" />
+    </Key>
+    <Property Name="pk_alumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_paterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_materno" Type="varchar" MaxLength="50" />
+    <Property Name="matricula_alumno" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="date" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_Calificaciones">
+    <Key>
+      <PropertyRef Name="pk_calificaciones" />
+    </Key>
+    <Property Name="pk_calificaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_maestro" Type="int" Nullable="false" />
+    <Property Name="fk_alumno" Type="int" Nullable="false" />
+    <Property Name="fk_materia" Type="int" Nullable="false" />
+    <Property Name="calificacion" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tb_Maestro">
+    <Key>
+      <PropertyRef Name="pk_maestro" />
+    </Key>
+    <Property Name="pk_maestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_paterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_materno" Type="varchar" MaxLength="50" />
+    <Property Name="matricula_empleado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="date" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_Materia">
+    <Key>
+      <PropertyRef Name="pk_materia" />
+    </Key>
+    <Property Name="pk_materia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_materia" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tb_Califi__fk_al__5629CD9C">
+    <End Role="tb_Alumno" Type="Self.tb_Alumno" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Alumno">
+        <PropertyRef Name="pk_alumno" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Califi__fk_ma__5535A963">
+    <End Role="tb_Maestro" Type="Self.tb_Maestro" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Maestro">
+        <PropertyRef Name="pk_maestro" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_maestro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Califi__fk_ma__571DF1D5">
+    <End Role="tb_Materia" Type="Self.tb_Materia" Multiplicity="1" />
+    <End Role="tb_Calificaciones" Type="Self.tb_Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Materia">
+        <PropertyRef Name="pk_materia" />
+      </Principal>
+      <Dependent Role="tb_Calificaciones">
+        <PropertyRef Name="fk_materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversidadModelStoreContainer">
+    <EntitySet Name="tb_Alumno" EntityType="Self.tb_Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Calificaciones" EntityType="Self.tb_Calificaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Maestro" EntityType="Self.tb_Maestro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Materia" EntityType="Self.tb_Materia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tb_Califi__fk_al__5629CD9C" Association="Self.FK__tb_Califi__fk_al__5629CD9C">
+      <End Role="tb_Alumno" EntitySet="tb_Alumno" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Califi__fk_ma__5535A963" Association="Self.FK__tb_Califi__fk_ma__5535A963">
+      <End Role="tb_Maestro" EntitySet="tb_Maestro" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Califi__fk_ma__571DF1D5" Association="Self.FK__tb_Califi__fk_ma__571DF1D5">
+      <End Role="tb_Materia" EntitySet="tb_Materia" />
+      <End Role="tb_Calificaciones" EntitySet="tb_Calificaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
